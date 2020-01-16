@@ -1,7 +1,5 @@
 package com.problem.solving.leetcode;
 
-import java.math.BigInteger;
-
 /**
  * Implement atoi which converts a string to an integer.
  *
@@ -54,61 +52,74 @@ public class Atoi {
 
     public int myAtoi(String input) {
 
-        int index = 0;
-        int result = 0;
-        StringBuilder numberString = new StringBuilder();
+        int index   = 0;
+        Long result = 0L;
+        boolean isNegative = false;
+
         input = input.trim();
 
         if (input.isEmpty()) {
-            return result;
+            return result.intValue();
         }
 
-        if (Character.isAlphabetic(input.charAt(0)) && input.charAt(0) != '-' && input.charAt(0) != '+') {
-            return result;
+        if (Character.isAlphabetic(input.charAt(index))
+                && input.charAt(index) != '-'
+                && input.charAt(index) != '+') {
+            return result.intValue();
         }
 
-        if (input.charAt(0) == '-' || input.charAt(0) == '+') {
-            numberString.append(input.charAt(0));
+        if (input.charAt(index) == '-' || input.charAt(index) == '+') {
+
+            if (input.charAt(index) == '-') {
+                isNegative = true;
+            }
+
             index = 1;
         }
 
-        while (index < input.length()) {
+        int length = input.length();
+        while (index < length) {
+
             char digit = input.charAt(index);
 
             if (Character.isDigit(digit)) {
-                numberString.append(digit);
+
+                int digitValue = (digit - '0');
+                result = result * 10;
+
+                if (isNegative) {
+                    result = result - digitValue;
+
+                    if (result < Integer.MIN_VALUE) {
+                        return Integer.MIN_VALUE;
+                    }
+
+                }
+
+                else {
+                    result = result + digitValue;
+
+                    if (result > Integer.MAX_VALUE) {
+                        return Integer.MAX_VALUE;
+                    }
+                }
+
             }
 
             else  {
-                break;
+                return result.intValue();
             }
 
-            index ++;
+            index++;
         }
 
-        if (numberString.toString().isEmpty() ||
-                numberString.toString().equalsIgnoreCase("-")  ||
-                numberString.toString().equalsIgnoreCase("+")) {
-            return result;
-        }
-
-        BigInteger numberConverted = new BigInteger(numberString.toString());
-
-        if (numberConverted.compareTo(BigInteger.valueOf(new Long(Integer.MAX_VALUE))) == 1) {
-            return Integer.MAX_VALUE;
-        }
-
-        if (numberConverted.compareTo(BigInteger.valueOf(new Long(Integer.MIN_VALUE))) == -1) {
-            return Integer.MIN_VALUE;
-        }
-
-        return numberConverted.intValue();
+        return result.intValue();
     }
 
     public static void main (String args[]) {
         Atoi converter = new Atoi();
 
-        System.out.println(converter.myAtoi("9223372036854775808"));
+        System.out.println(converter.myAtoi(" "));
     }
 
 }
