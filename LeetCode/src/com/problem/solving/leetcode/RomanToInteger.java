@@ -1,7 +1,7 @@
 package com.problem.solving.leetcode;
 
-import java.util.Hashtable;
-import java.util.Stack;
+import java.util.HashMap;
+import java.util.Optional;
 
 /**
  * Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -34,7 +34,81 @@ import java.util.Stack;
 public class RomanToInteger {
 
     public int romanToInt(String input) {
-        return 0;
+
+        HashMap<String, Integer> romanNumbers = new HashMap();
+
+        romanNumbers.put("I", 1);
+        romanNumbers.put("II", 2);
+        romanNumbers.put("III", 3);
+        romanNumbers.put("IV", 4);
+        romanNumbers.put("V", 5);
+        romanNumbers.put("VI", 6);
+        romanNumbers.put("VII", 7);
+        romanNumbers.put("VIII", 8);
+        romanNumbers.put("IX", 9);
+        romanNumbers.put("X", 10);
+        romanNumbers.put("XX", 20);
+        romanNumbers.put("XXX", 30);
+        romanNumbers.put("XL", 40);
+        romanNumbers.put("L", 50);
+        romanNumbers.put("LX", 60);
+        romanNumbers.put("LXX", 70);
+        romanNumbers.put("LXXX", 80);
+        romanNumbers.put("XC", 90);
+        romanNumbers.put("C", 100);
+        romanNumbers.put("CC", 200);
+        romanNumbers.put("CCC", 300);
+        romanNumbers.put("CD", 400);
+        romanNumbers.put("D", 500);
+        romanNumbers.put("DC", 600);
+        romanNumbers.put("DCC", 700);
+        romanNumbers.put("DCCC", 800);
+        romanNumbers.put("CM", 900);
+        romanNumbers.put("M", 1000);
+        romanNumbers.put("MM", 2000);
+        romanNumbers.put("MMM", 3000);
+
+        int result = 0;
+        char currentChar;
+        char previousChar  = input.charAt(0);
+        String romanNumber = "";
+
+        for (int i = 0; i < input.length(); i++) {
+
+            currentChar = input.charAt(i);
+            romanNumber += currentChar;
+
+            if (currentChar != previousChar) {
+
+                if (Optional.ofNullable(romanNumbers.get(romanNumber)).isPresent()) {
+                    result = result + romanNumbers.get(romanNumber);
+                    romanNumber  = "";
+
+                    if (i+1 < input.length()) {
+                        previousChar = input.charAt(i+1);
+                    }
+
+                    continue;
+                }
+
+                result = result + romanNumbers.get(romanNumber.substring(0, romanNumber.length() - 1));
+                romanNumber = "" + currentChar;
+            }
+
+            previousChar = currentChar;
+        }
+
+        if (!romanNumber.isEmpty()) {
+            result = result + romanNumbers.get(romanNumber);
+        }
+
+        return result;
+    }
+
+    public static void main (String args[]) {
+        RomanToInteger converter = new RomanToInteger();
+
+        System.out.println(converter.romanToInt("XXXIV"));
     }
 
 }
