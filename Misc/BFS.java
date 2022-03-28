@@ -7,6 +7,32 @@ public class Solution {
     private static String closestNode = "";
     private static Integer minimunSteps = -1;
     private static Hashtable<String, Boolean> visitedNodes = new Hashtable<String, Boolean>();
+
+
+    public TreeNode invertTree(TreeNode root) {
+
+        Queue<TreeNode> pendingNodes = new LinkedList<>();
+        pendingNodes.add(root);
+
+        while (!pendingNodes.isEmpty()) {
+
+            TreeNode currentNode = pendingNodes.poll();
+
+            System.out.println(currentNode.value);
+            
+            if (Optional.ofNullable(currentNode.left).isPresent()) {
+                pendingNodes.add(currentNode.left);
+            }
+
+            if (Optional.ofNullable(currentNode.right).isPresent()) {
+                pendingNodes.add(currentNode.right);
+            }
+
+        }
+
+
+        return root;
+    }
     
     public static int BFS_FIRST(Hashtable<String, String> graph, 
                               Hashtable<String, Boolean> visitedNodes,
