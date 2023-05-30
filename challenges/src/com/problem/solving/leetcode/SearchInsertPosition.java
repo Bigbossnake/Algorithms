@@ -11,7 +11,6 @@ public class SearchInsertPosition {
 
   public int searchInsert(int[] input, int target) {
 
-    int solution = -1;
     int left     = 0;
     int right    = input.length - 1;
 
