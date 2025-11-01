@@ -20,13 +20,21 @@ public class RotateArray {
   public void reverse(int[] nums, int startIndex, int endIndex) {
 
     while (startIndex < endIndex) {
-      int temp = nums[startIndex];
+      int temp         = nums[startIndex];
       nums[startIndex] = nums[endIndex];
-      nums[endIndex] = temp;
+      nums[endIndex]   = temp;
+
       startIndex++;
       endIndex--;
     }
 
+  }
+
+  public static void main(String[] args) {
+      int[]nums = {1,2,3,4};
+
+      RotateArray rotateArray = new RotateArray();
+      rotateArray.rotate(nums, 1000);
   }
 
 }
