@@ -23,8 +23,6 @@ public class RotateImage {
         int tmp     = image[j][i];
         image[j][i] = image[i][j];
         image[i][j] = tmp;
-
-        printMatrix(image);
       }
     }
   }
@@ -43,11 +41,20 @@ public class RotateImage {
   public void printMatrix(int[][] image) {
     for (int x = 0; x < image.length; x++) {
       for (int y = 0; y < image[x].length; y++) {
-        System.out.print(image[x][y] + ", ");
 
-        if ((y + 1) % image[x].length == 0 && y > 0) {
-          System.out.println();
-        }
+          int value = image[x][y];
+
+          if (value < 10) {
+              System.out.print("0" + image[x][y] + ", ");
+          }
+
+          else if (value > 10) {
+              System.out.print(image[x][y] + ", ");
+          }
+
+          if ((y + 1) % image[x].length == 0 && y > 0) {
+              System.out.println();
+          }
       }
     }
 
@@ -56,13 +63,11 @@ public class RotateImage {
 
   public static void main(String args[]) {
 
-    /*
     int image[][] = {
       {1, 2, 3},
       {4, 5, 6},
       {7, 8, 9}
     };
-    */
 
     /*
     int image[][] = {
@@ -72,6 +77,7 @@ public class RotateImage {
         {15, 14, 12, 16}
     };*/
 
+    /*
     int image[][] = {
         {1, 2, 3, 4, 5},
         {6, 7, 8, 9, 10},
@@ -79,6 +85,7 @@ public class RotateImage {
         {16,17,18,19,20},
         {21,22,23,24,25}
     };
+    */
 
     RotateImage imageRotator = new RotateImage();
     imageRotator.printMatrix(image);

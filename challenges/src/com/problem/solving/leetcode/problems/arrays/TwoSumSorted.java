@@ -19,7 +19,7 @@ public class TwoSumSorted {
 
     public int[] twoSum(int[] nums, int target) {
 
-        int[] resultIndex        = new int[2];
+        int[] resultIndex   = new int[2];
         int leftIndex       = 0;
         int rightIndex      = nums.length - 1;
         boolean targetFound = false;
