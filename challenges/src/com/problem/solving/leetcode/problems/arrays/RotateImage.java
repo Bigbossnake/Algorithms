@@ -9,8 +9,6 @@
  */
 package com.problem.solving.leetcode.problems.arrays;
 
-
-
 public class RotateImage {
 
     public void rotate(int[][] image) {

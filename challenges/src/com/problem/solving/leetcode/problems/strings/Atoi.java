@@ -125,8 +125,9 @@ public class Atoi {
 
     public static void main (String args[]) {
         Atoi converter = new Atoi();
+        String input = "   -042";
 
-        System.out.println(converter.myAtoi("123"));
+        System.out.println(converter.myAtoi(input));
     }
 
 }
