@@ -12,20 +12,27 @@ import java.util.Arrays;
 
 public class ReverseWordsII {
 
+    public void reverserString(int leftIndex, int rightIndex, char[] input) {
+
+        while (leftIndex < rightIndex) {
+            char tmp     = input[leftIndex];
+
+            input[leftIndex]  = input[rightIndex];
+            input[rightIndex] = tmp;
+
+            leftIndex++;
+            rightIndex--;
+        }
+
+    }
+
     public void reverseWords(char[] s) {
         final char BLANK_SPACE = ' ';
 
         int leftIndex  = 0;
         int rightIndex = s.length - 1;
 
-        while(leftIndex < rightIndex) {
-            char temp     = s[leftIndex];
-            s[leftIndex]  = s[rightIndex];
-            s[rightIndex] = temp;
-
-            leftIndex++;
-            rightIndex--;
-        }
+        reverserString(leftIndex, rightIndex, s);
 
         int index      = 0;
         int wordLength = 0;
@@ -42,15 +49,7 @@ public class ReverseWordsII {
 
             leftIndex  = index - wordLength;
             rightIndex = index - 1;
-
-            while(leftIndex < rightIndex) {
-                char temp     = s[leftIndex];
-                s[leftIndex]  = s[rightIndex];
-                s[rightIndex] = temp;
-
-                leftIndex++;
-                rightIndex--;
-            }
+            reverserString(leftIndex, rightIndex, s);
 
             index++;
             wordLength = 0;
@@ -60,14 +59,7 @@ public class ReverseWordsII {
             leftIndex  = index - wordLength;
             rightIndex = index;
 
-            while(leftIndex < rightIndex) {
-                char temp     = s[leftIndex];
-                s[leftIndex]  = s[rightIndex];
-                s[rightIndex] = temp;
-
-                leftIndex++;
-                rightIndex--;
-            }
+            reverserString(leftIndex, rightIndex, s);
         }
     }
 
