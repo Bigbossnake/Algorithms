@@ -9,7 +9,7 @@
  */
 package com.problem.solving.leetcode.problems.list;
 
-import com.problem.solving.leetcode.definitions.ListNode;
+import com.problem.solving.leetcode.problems.definitions.ListNode;
 import java.util.Stack;
 
 public class ReverseKGroup {

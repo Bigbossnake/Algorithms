@@ -6,7 +6,8 @@
 
 package com.problem.solving.leetcode.problems.trees;
 
-import com.problem.solving.leetcode.definitions.TreeNode;
+import com.problem.solving.leetcode.problems.definitions.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;

@@ -5,7 +5,7 @@
  */
 package com.problem.solving.leetcode.problems.list;
 
-import com.problem.solving.leetcode.definitions.ListNode;
+import com.problem.solving.leetcode.problems.definitions.ListNode;
 
 public class Merge2List {
 

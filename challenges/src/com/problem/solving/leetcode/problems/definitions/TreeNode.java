@@ -1,4 +1,4 @@
-package com.problem.solving.leetcode.definitions;
+package com.problem.solving.leetcode.problems.definitions;
 
 /**
  * Definition for a binary tree node.
