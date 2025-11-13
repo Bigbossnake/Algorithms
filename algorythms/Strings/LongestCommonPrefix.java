@@ -56,7 +56,7 @@ class LongestCommonPrefix {
     String result = solution.longestCommonPrefix(strs);
     System.out.println(result);
   }
-}package com.apple.interviews;
+}
 
 /* Write a function to find the longest common prefix string amongst an array of strings.
 
