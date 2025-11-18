@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Queue;
 
 public class BFS_III {
-
   public void BFS(TreeNode root) {
     Queue<TreeNode> pendingNodes = new LinkedList<>();
     pendingNodes.add(root);

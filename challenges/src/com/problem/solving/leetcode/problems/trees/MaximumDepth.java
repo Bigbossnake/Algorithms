@@ -12,6 +12,17 @@ import java.util.Stack;
 
 public class MaximumDepth {
 
+  public int maxDepth_recursive(TreeNode root) {
+    if (root == null) {
+      return 0;
+    }
+
+    int leftDepth  = maxDepth_recursive(root.left);
+    int rightDepth = maxDepth_recursive(root.right);
+
+    return Math.max(leftDepth, rightDepth) + 1;
+  }
+
   public int maxDepth(TreeNode root) {
     Stack<TreeNode> stack = new Stack<>();
     Stack<Integer> depths = new Stack<>();
@@ -23,7 +34,7 @@ public class MaximumDepth {
     stack.add(root);
     depths.add(1);
 
-    int level_depth  = 0;
+    int level_depth = 0;
     int currentDepth = 0;
 
     while (!stack.isEmpty()) {
