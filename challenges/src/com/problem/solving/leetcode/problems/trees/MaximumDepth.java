@@ -7,7 +7,6 @@
 package com.problem.solving.leetcode.problems.trees;
 
 import com.problem.solving.leetcode.problems.definitions.TreeNode;
-
 import java.util.Stack;
 
 public class MaximumDepth {
