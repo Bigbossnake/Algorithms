@@ -1,4 +1,4 @@
-package com.amazon.interviews;
+package com.algorithms.examples;
 
 import java.util.Hashtable;
 import java.util.Scanner;

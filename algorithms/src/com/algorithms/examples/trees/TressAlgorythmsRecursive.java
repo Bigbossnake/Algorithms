@@ -1,4 +1,5 @@
-import java.util.List;
+package com.algorithms.examples.trees;
+
 import java.util.Queue;
 import java.util.Stack;
 
@@ -10,7 +11,7 @@ public class TressAlgorythmsRecursive {
       return;
     }
 
-    Node node = (Node) queue.poll();
+    TreeNodeDef node = (TreeNodeDef) queue.poll();
 
     System.out.println(node + " ");
 
@@ -31,7 +32,7 @@ public class TressAlgorythmsRecursive {
       return;
     }
 
-    Node node = (Node) stack.pop();
+    TreeNodeDef node = (TreeNodeDef) stack.pop();
 
     System.out.println(node + " ");
 

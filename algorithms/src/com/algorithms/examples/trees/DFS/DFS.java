@@ -1,8 +1,10 @@
+package com.algorithms.examples.trees.DFS;
+
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.atomic.*;
 
-public class Solution {
+public class DFS {
 
   private static String SPACE = " ";
 

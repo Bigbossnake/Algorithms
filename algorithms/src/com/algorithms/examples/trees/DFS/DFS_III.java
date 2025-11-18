@@ -1,16 +1,16 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+package com.algorithms.examples.trees.DFS;
+
+import com.algorithms.examples.trees.TreeNodeDef;
+
 import java.util.Stack;
 
 public class DFS_III {
-  public void DFS(TreeNode root) {
-    Stack<TreeNode> pendingNodes = new Stack<>();
+  public void DFS(TreeNodeDef root) {
+    Stack<TreeNodeDef> pendingNodes = new Stack<>();
     pendingNodes.push(root);
 
     while (!pendingNodes.isEmpty()) {
-      TreeNode currentNode = pendingNodes.pop();
+      TreeNodeDef currentNode = pendingNodes.pop();
 
       if (currentNode != null) {
         System.out.println(currentNode.val);

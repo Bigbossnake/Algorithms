@@ -1,13 +1,14 @@
-package com.problem.solving.leetcode;
+package com.algorithms.examples.trees.BFS;
 
-import com.problem.solving.leetcode.definitions.TreeNode;
+import com.algorithms.examples.trees.TreeNodeDef;
 
+import java.util.LinkedList;
 import java.util.Objects;
-import java.util.Stack;
+import java.util.Queue;
 
-public class SameTreeDfs {
+public class BFS_II {
 
-  public boolean isSameTree(TreeNode p, TreeNode q) {
+  public boolean isSameTree(TreeNodeDef p, TreeNodeDef q) {
 
     boolean isTheSameTree = true;
 
@@ -19,14 +20,14 @@ public class SameTreeDfs {
       return false;
     }
 
-    Stack<TreeNode> pendingNodes = new Stack<>();
-    pendingNodes.push(p);
-    pendingNodes.push(q);
+    Queue<TreeNodeDef> pendingNodes = new LinkedList<>();
+    pendingNodes.add(p);
+    pendingNodes.add(q);
 
     while (!pendingNodes.isEmpty()) {
 
-      TreeNode currentNodeP = pendingNodes.pop();
-      TreeNode currentNodeQ = pendingNodes.pop();
+      TreeNodeDef currentNodeP = pendingNodes.poll();
+      TreeNodeDef currentNodeQ = pendingNodes.poll();
 
       if (currentNodeP == null && currentNodeQ != null) {
         isTheSameTree = false;
@@ -47,10 +48,10 @@ public class SameTreeDfs {
         break;
       }
 
-      pendingNodes.push(currentNodeP.left);
-      pendingNodes.push(currentNodeQ.left);
-      pendingNodes.push(currentNodeP.right);
-      pendingNodes.push(currentNodeQ.right);
+      pendingNodes.add(currentNodeP.left);
+      pendingNodes.add(currentNodeQ.left);
+      pendingNodes.add(currentNodeP.right);
+      pendingNodes.add(currentNodeQ.right);
     }
 
     return isTheSameTree;

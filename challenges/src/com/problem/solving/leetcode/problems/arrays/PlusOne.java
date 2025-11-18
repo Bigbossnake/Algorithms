@@ -66,7 +66,8 @@ public class PlusOne {
             plusOneNumber = plusOneNumber.divide(BigInteger.TEN);
         }
 
-        return plusOneNumberList.reversed()
+        return plusOneNumberList
+                .reversed()
                 .parallelStream()
                 .mapToInt(Integer::intValue)
                 .toArray();

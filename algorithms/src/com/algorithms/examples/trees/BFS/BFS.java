@@ -1,23 +1,27 @@
+package com.algorithms.examples.trees.BFS;
+
+import com.algorithms.examples.trees.TreeNodeDef;
+
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class BFS {
 
   private static String SPACE = " ";
   private static String closestNode = "";
   private static Integer minimunSteps = -1;
   private static Hashtable<String, Boolean> visitedNodes = new Hashtable<String, Boolean>();
 
-  public TreeNode invertTree(TreeNode root) {
+  public TreeNodeDef invertTree(TreeNodeDef root) {
 
-    Queue<TreeNode> pendingNodes = new LinkedList<>();
+    Queue<TreeNodeDef> pendingNodes = new LinkedList<>();
     pendingNodes.add(root);
 
     while (!pendingNodes.isEmpty()) {
 
-      TreeNode currentNode = pendingNodes.poll();
+      TreeNodeDef currentNode = pendingNodes.poll();
 
-      System.out.println(currentNode.value);
+      System.out.println(currentNode.val);
 
       if (Optional.ofNullable(currentNode.left).isPresent()) {
         pendingNodes.add(currentNode.left);
@@ -132,7 +136,7 @@ public class Solution {
 
           if (minimunSteps < 0) {
             minimunSteps = numberOfSteps;
-            closestNode = targetNode;
+            closestNode  = targetNode;
 
           } else if (numberOfSteps < minimunSteps && numberOfSteps != -1) {
             minimunSteps = numberOfSteps;

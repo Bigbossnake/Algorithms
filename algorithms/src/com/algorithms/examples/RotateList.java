@@ -1,4 +1,4 @@
-package com.apple.interviews;
+package com.algorithms.examples;
 
 /*
  * Given the head of a linked list, rotate the list to the right by k places.
@@ -20,7 +20,6 @@ package com.apple.interviews;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
-import java.util.Stack;
 
 class ListNode {
   int val;

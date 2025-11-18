@@ -1,16 +1,18 @@
-import java.util.List;
+package com.algorithms.examples.trees;
+
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
 public class TressAlgorythmsIterative {
 
-  public void BFS(TreeNode root) {
-    Queue<TreeNode> pendingNodes = new LinkedList<>();
+  public void BFS(TreeNodeDef root) {
+    Queue<TreeNodeDef> pendingNodes = new LinkedList<>();
     pendingNodes.add(root);
 
     while (!pendingNodes.isEmpty()) {
 
-      TreeNode currentNode = pendingNodes.poll();
+      TreeNodeDef currentNode = pendingNodes.poll();
 
       if (currentNode != null) {
         System.out.print(currentNode.val + " , ");
@@ -26,12 +28,12 @@ public class TressAlgorythmsIterative {
     }
   }
 
-  public void DFS(TreeNode root) {
-    Stack<TreeNode> pendingNodes = new Stack<>();
+  public void DFS(TreeNodeDef root) {
+    Stack<TreeNodeDef> pendingNodes = new Stack<>();
     pendingNodes.push(root);
 
     while (!pendingNodes.isEmpty()) {
-      TreeNode currentNode = pendingNodes.pop();
+      TreeNodeDef currentNode = pendingNodes.pop();
 
       if (currentNode != null) {
         System.out.println(currentNode.val);
@@ -46,5 +48,4 @@ public class TressAlgorythmsIterative {
       }
     }
   }
-
 }
