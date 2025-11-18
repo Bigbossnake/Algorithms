@@ -17,7 +17,7 @@ public class MaximumDepth {
       return 0;
     }
 
-    int leftDepth  = maxDepth_recursive(root.left);
+    int leftDepth = maxDepth_recursive(root.left);
     int rightDepth = maxDepth_recursive(root.right);
 
     return Math.max(leftDepth, rightDepth) + 1;
@@ -52,5 +52,22 @@ public class MaximumDepth {
       }
     }
     return level_depth;
+  }
+
+  public static void main(String[] args) {
+    MaximumDepth md = new MaximumDepth();
+
+    TreeNode root = new TreeNode(3);
+    TreeNode left = new TreeNode(9);
+    TreeNode right = new TreeNode(20);
+
+    root.left = left;
+    root.right = right;
+
+    root.right.right = new TreeNode(15);
+    root.right.left = new TreeNode(7);
+
+    int deepth = md.maxDepth_recursive(root);
+    System.out.println(deepth);
   }
 }
