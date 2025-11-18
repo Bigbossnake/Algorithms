@@ -99,10 +99,10 @@ public class LRUCache {
     }
 
     private int findLruCacheElement() {
-        return cache.values().parallelStream()
+        return cache.values().stream()
                 .sorted()
                 .toList()
-                .getFirst()
+                .get(0)
                 .id;
     }
 

@@ -4,68 +4,45 @@ import com.problem.solving.leetcode.problems.definitions.TreeNode;
 
 public class sortedArrayToBST {
 
-    public void showInOrder(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+  public TreeNode buildBST_I(int nums[], int leftIndex, int rightIndex) {
 
-        showInOrder(root.left);
-        System.out.print(root.val + " ");
-        showInOrder(root.right);
+    if (leftIndex > rightIndex) {
+      return null;
     }
 
-    public TreeNode insertIntoBST(TreeNode root, int val) {
-        if (root == null) {
-            return new TreeNode(val);
-        }
+    // always choose left middle node as a root
+    int middleIndex = (leftIndex + rightIndex) / 2;
 
-        if (val < root.val) {
-            root.left = insertIntoBST(root.left, val);
-        }
+    // preorder traversal: node -> left -> right
+    TreeNode root = new TreeNode(nums[middleIndex]);
+    root.left     = buildBST_I(nums, leftIndex, middleIndex - 1);
+    root.right    = buildBST_I(nums, middleIndex + 1, rightIndex);
 
-        else {
-            root.right = insertIntoBST(root.right, val);
-        }
+    return root;
+  }
 
-        return root;
+  public TreeNode buildBST_II(int nums[], int leftIndex, int rightIndex) {
+
+    if (leftIndex > rightIndex) {
+      return null;
     }
 
-    public TreeNode sortedArrayToBST(int[] nums) {
+    int middleIndex = (leftIndex + rightIndex) / 2;
 
-        if (nums == null || nums.length == 0) {
-            return null;
-        }
-
-        if (nums.length == 1) {
-            return new TreeNode(nums[0]);
-        }
-
-        int treeIndex = (nums.length - 1) / 2;
-        TreeNode root = new TreeNode(nums[treeIndex]);
-
-        for (int i = 0; i <= nums.length; i++) {
-            if (i != treeIndex) {
-                insertIntoBST(root, nums[i]);
-            }
-        }
-
-        return root;
+    // always choose right middle node as a root
+    if ((leftIndex + rightIndex) % 2 == 1) {
+      ++middleIndex;
     }
 
-    public static void main(String[] args) {
-        sortedArrayToBST sortedArrayToBST = new sortedArrayToBST();
+    // preorder traversal: node -> left -> right
+    TreeNode root = new TreeNode(nums[middleIndex]);
+    root.left     = buildBST_II(nums, leftIndex, middleIndex - 1);
+    root.right    = buildBST_II(nums, middleIndex + 1, rightIndex);
 
-        TreeNode root = new TreeNode(3);
-        TreeNode left = new TreeNode(9);
-        TreeNode right = new TreeNode(20);
+    return root;
+  }
 
-        root.left = left;
-        root.right = right;
-
-        root.right.right = new TreeNode(15);
-        root.right.left = new TreeNode(7);
-
-        sortedArrayToBST.showInOrder(root);
-    }
-
+  public TreeNode sortedArrayToBST(int[] nums) {
+    return buildBST_I(nums, 0, nums.length - 1);
+  }
 }
