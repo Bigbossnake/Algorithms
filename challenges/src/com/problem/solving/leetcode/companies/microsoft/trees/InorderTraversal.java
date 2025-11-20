@@ -1,5 +1,5 @@
 /** Given the root of a binary tree, return the inorder traversal of its nodes' values. */
-package com.problem.solving.leetcode.companies.microsoft.Trees;
+package com.problem.solving.leetcode.companies.microsoft.trees;
 
 import com.problem.solving.leetcode.problems.definitions.TreeNode;
 
