@@ -1,6 +1,6 @@
 package com.algorithms.examples.trees.DFS;
 
-import com.algorithms.examples.trees.TreeNodeDef;
+import com.algorithms.examples.trees.definitions.TreeNodeDef;
 
 import java.util.Stack;
 

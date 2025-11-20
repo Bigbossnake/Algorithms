@@ -1,5 +1,7 @@
 package com.algorithms.examples.trees;
 
+import com.algorithms.examples.trees.definitions.TreeNodeDef;
+
 public class TreeTransversal {
 
   public void inOrder(TreeNodeDef root) {

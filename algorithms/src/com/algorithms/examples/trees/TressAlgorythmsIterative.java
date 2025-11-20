@@ -1,5 +1,7 @@
 package com.algorithms.examples.trees;
 
+import com.algorithms.examples.trees.definitions.TreeNodeDef;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;

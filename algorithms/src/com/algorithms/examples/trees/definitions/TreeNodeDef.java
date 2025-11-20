@@ -1,4 +1,4 @@
-package com.algorithms.examples.trees;
+package com.algorithms.examples.trees.definitions;
 
 public class TreeNodeDef {
 
@@ -13,7 +13,7 @@ public class TreeNodeDef {
   }
 
   public TreeNodeDef(int val, TreeNodeDef left, TreeNodeDef right) {
-    this.val  = val;
+    this.val   = val;
     this.left  = left;
     this.right = right;
   }
