@@ -1,19 +1,18 @@
 package com.algorithms.examples.trees.BFS;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import com.algorithms.examples.trees.TreeNodeDef;
+
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class BFS_III {
-  public void BFS(TreeNode root) {
-    Queue<TreeNode> pendingNodes = new LinkedList<>();
+  public void BFS(TreeNodeDef root) {
+    Queue<TreeNodeDef> pendingNodes = new LinkedList<>();
     pendingNodes.add(root);
 
     while (!pendingNodes.isEmpty()) {
 
-      TreeNode currentNode = pendingNodes.poll();
+      TreeNodeDef currentNode = pendingNodes.poll();
 
       if (currentNode != null) {
         System.out.print(currentNode.val + " , ");
