@@ -63,7 +63,7 @@ public class TreeTransversal {
     System.out.println("\n");
 
     System.out.println("#########################################");
-    System.out.println("#         POST-ORDER TRANSVERSAL         #");
+    System.out.println("#         POST-ORDER TRANSVERSAL        #");
     System.out.println("#########################################");
     treeTransversal.postOrder(root);
     System.out.println("\n");
