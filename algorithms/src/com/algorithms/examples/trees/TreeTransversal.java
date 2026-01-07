@@ -4,6 +4,23 @@ import com.algorithms.examples.trees.definitions.TreeNodeDef;
 
 public class TreeTransversal {
 
+  public TreeNodeDef insertNode(TreeNodeDef root, int val) {
+
+    if (root == null) {
+      return new TreeNodeDef(val);
+    }
+
+    if (val > root.val) {
+      root.right = insertNode(root.right, val);
+    }
+
+    else {
+      root.left = insertNode(root.left, val);
+    }
+
+    return root;
+  }
+
   public void inOrder(TreeNodeDef root) {
     if (root == null) {
       return;
@@ -37,18 +54,13 @@ public class TreeTransversal {
   public static void main(String[] args) {
     TreeTransversal treeTransversal = new TreeTransversal();
 
-    TreeNodeDef root  = new TreeNodeDef(10);
-    TreeNodeDef left  = new TreeNodeDef(9);
-    TreeNodeDef right = new TreeNodeDef(20);
-
-    root.left  = left;
-    root.right = right;
-
-    root.right.right = new TreeNodeDef(21);
-    root.right.left  = new TreeNodeDef(17);
-
-    root.left.right = new TreeNodeDef(8);
-    root.left.left  = new TreeNodeDef(7);
+    TreeNodeDef root = treeTransversal.insertNode(null, 10);
+    treeTransversal.insertNode(root,8);
+    treeTransversal.insertNode(root, 9);
+    treeTransversal.insertNode(root, 7);
+    treeTransversal.insertNode(root, 20);
+    treeTransversal.insertNode(root, 21);
+    treeTransversal.insertNode(root, 17);
 
     System.out.println("#########################################");
     System.out.println("#          IN-ORDER TRANSVERSAL          #");
