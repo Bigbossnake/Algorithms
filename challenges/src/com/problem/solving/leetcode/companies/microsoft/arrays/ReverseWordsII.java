@@ -15,7 +15,7 @@ public class ReverseWordsII {
     public void reverserString(int leftIndex, int rightIndex, char[] input) {
 
         while (leftIndex < rightIndex) {
-            char tmp     = input[leftIndex];
+            char tmp = input[leftIndex];
 
             input[leftIndex]  = input[rightIndex];
             input[rightIndex] = tmp;
