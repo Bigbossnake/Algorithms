@@ -1,4 +1,4 @@
-package com.problem.solving.leetcode.problems.backtracking;
+package com.problem.solving.leetcode.companies.microsoft.backtracking;
 
 import java.util.ArrayList;
 import java.util.HashMap;

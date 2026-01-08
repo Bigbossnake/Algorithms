@@ -10,7 +10,7 @@
 package com.problem.solving.leetcode.problems.arrays;
 
 
-public class BestTimeToBuy {
+public class BestTimeToBuyII {
 
     public int maxProfit_II(int[] prices) {
         int maxprofit = 0;
@@ -52,8 +52,8 @@ public class BestTimeToBuy {
         int profit = 0;
         int[] prices = {1,2,3,4,5};
 
-        BestTimeToBuy bestTimeToBuy = new BestTimeToBuy();
-        profit = bestTimeToBuy.maxProfit_II(prices);
+        BestTimeToBuyII bestTimeToBuyII = new BestTimeToBuyII();
+        profit = bestTimeToBuyII.maxProfit_II(prices);
         System.out.println(profit);
     }
 }
