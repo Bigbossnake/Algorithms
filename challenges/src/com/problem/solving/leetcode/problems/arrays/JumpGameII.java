@@ -22,7 +22,10 @@ public class JumpGameII {
   }
 
   public static void main(String args[]) {
-    int nums[] = {6,2,6,1,7,9,3,5,3,7,2,8,9,4,7,7,2,2,8,4,6,6,1,3};
+    int nums[] = {6, 2, 6, 1, 7, 9, 3,
+                  5, 3, 7, 2, 8, 9, 4,
+                  7, 7, 2, 2, 8, 4, 6,
+                  6, 1, 3};
 
     JumpGameII jumpGameII = new JumpGameII();
     System.out.println(jumpGameII.jump(nums));
