@@ -15,11 +15,15 @@ public class BackTrakcingPermute {
 
     for (int i = 0; i < nums.length; i++) {
       // exclud illegal selections
-      if (track.contains(nums[i])) continue;
+      if (track.contains(nums[i]))
+        continue;
+
       // select
       track.add(nums[i]);
+
       // go to the next decision tree
       backtrack(nums, track);
+
       // deselect
       track.removeLast();
     }
@@ -31,5 +35,13 @@ public class BackTrakcingPermute {
     LinkedList<Integer> track = new LinkedList<>();
     backtrack(nums, track);
     return res;
+  }
+
+  public static void main(String[] args) {
+    int[] nums = {1, 2, 3};
+    BackTrakcingPermute backTrakcingPermute = new BackTrakcingPermute();
+    List<List<Integer>> permutations = backTrakcingPermute.permute(nums);
+
+    System.out.println("All permutations of [1, 2, 3]: " + permutations);
   }
 }
