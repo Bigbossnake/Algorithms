@@ -11,10 +11,8 @@
  */
 package com.problem.solving.leetcode.problems.backtracking;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 public class CombinationSum {
 
