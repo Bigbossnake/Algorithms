@@ -11,7 +11,7 @@ import java.util.*;
 
 public class RemoveDuplicatesFromSortedArray {
 
-    // Optimal Solution
+    // Optimal com.problem.solving.leetcode.companies.Solution
     public int removeDuplicates_II(int[] nums) {
         int insertIndex = 1;
         for (int i = 1; i < nums.length; i++) {
