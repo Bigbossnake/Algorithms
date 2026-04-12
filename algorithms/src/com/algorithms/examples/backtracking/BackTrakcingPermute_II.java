@@ -52,4 +52,12 @@ public class BackTrakcingPermute_II {
 
     return letterCombinations;
   }
+
+  public static void main(String[] args) {
+    BackTrakcingPermute_II backTrakcingPermute = new BackTrakcingPermute_II();
+    String digits = "23";
+
+    List<String> letterCombinations = backTrakcingPermute.letterCombinations(digits);
+    System.out.println(letterCombinations);
+  }
 }
