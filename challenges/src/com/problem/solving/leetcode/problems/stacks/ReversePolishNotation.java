@@ -14,14 +14,22 @@
  */
 package com.problem.solving.leetcode.problems.stacks;
 
+import java.util.Map;
 import java.util.Stack;
 
 public class ReversePolishNotation {
 
-  private static final String SUM            = "+";
-  private static final String SUBSTRACTION   = "-";
+  private static final String SUM = "+";
+  private static final String SUBSTRACTION = "-";
   private static final String MULTIPLICATION = "*";
-  private static final String DIVISION       = "/";
+  private static final String DIVISION = "/";
+
+  private static final Map<String, Boolean> isOperator = Map.of(
+          SUM, Boolean.TRUE,
+          SUBSTRACTION, Boolean.TRUE,
+          MULTIPLICATION, Boolean.TRUE,
+          DIVISION, Boolean.TRUE
+      );
 
   public int evalRPN(String[] tokens) {
     int result = 0;
@@ -34,8 +42,7 @@ public class ReversePolishNotation {
     for (int i = 0; i < tokens.length; i++) {
       String currentOperand = tokens[i];
 
-      if (currentOperand.startsWith("-") && currentOperand.length() > 1
-              || currentOperand.chars().allMatch(Character::isDigit)) {
+      if (!isOperator.containsKey(currentOperand)) {
         operands.push(currentOperand);
       }
 
@@ -44,12 +51,12 @@ public class ReversePolishNotation {
         int operand2 = Integer.parseInt(operands.pop());
 
         result = switch (currentOperand) {
-          case SUM -> operand1 + operand2;
-          case SUBSTRACTION -> operand2 - operand1;
-          case MULTIPLICATION -> operand1 * operand2;
-          case DIVISION -> operand2 / operand1;
-          default -> 0;
-        };
+              case SUM -> operand1 + operand2;
+              case SUBSTRACTION -> operand2 - operand1;
+              case MULTIPLICATION -> operand1 * operand2;
+              case DIVISION -> operand2 / operand1;
+              default -> 0;
+            };
 
         operands.push(String.valueOf(result));
       }
@@ -60,7 +67,7 @@ public class ReversePolishNotation {
 
   public static void main(String[] args) {
     ReversePolishNotation reversePolishNotation = new ReversePolishNotation();
-    String[] tokens = new String[] {"4","13","5","/","+"};
+    String[] tokens = new String[] {"4", "13", "5", "/", "+"};
 
     int result = reversePolishNotation.evalRPN(tokens);
     System.out.println("Result: " + result);
