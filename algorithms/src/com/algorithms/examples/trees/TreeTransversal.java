@@ -54,13 +54,15 @@ public class TreeTransversal {
   public static void main(String[] args) {
     TreeTransversal treeTransversal = new TreeTransversal();
 
-    TreeNodeDef root = treeTransversal.insertNode(null, 10);
-    treeTransversal.insertNode(root,8);
-    treeTransversal.insertNode(root, 9);
-    treeTransversal.insertNode(root, 7);
-    treeTransversal.insertNode(root, 20);
-    treeTransversal.insertNode(root, 21);
-    treeTransversal.insertNode(root, 17);
+    TreeNodeDef root = treeTransversal.insertNode(null, 50);
+    treeTransversal.insertNode(root,40);
+    treeTransversal.insertNode(root, 60);
+    treeTransversal.insertNode(root, 30);
+    treeTransversal.insertNode(root, 45);
+    treeTransversal.insertNode(root, 58);
+    treeTransversal.insertNode(root, 70);
+    treeTransversal.insertNode(root, 25);
+    treeTransversal.insertNode(root, 35);
 
     System.out.println("#########################################");
     System.out.println("#          IN-ORDER TRANSVERSAL          #");
