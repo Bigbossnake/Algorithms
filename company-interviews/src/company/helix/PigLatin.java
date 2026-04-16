@@ -69,29 +69,9 @@ public class PigLatin {
     String input3 = "eat apples";
     String input4 = "Hello world";
 
-    System.out.println(
-        "Pig Latin for '"
-            + input1
-            + "': "
-            + pigLatin.transformSentence(input1)
-            + " Answer: 'ellohay'");
-    System.out.println(
-        "Pig Latin for '"
-            + input2
-            + "': "
-            + pigLatin.transformSentence(input2)
-            + " Answer: 'ellohay orldway'");
-    System.out.println(
-        "Pig Latin for '"
-            + input3
-            + "': "
-            + pigLatin.transformSentence(input3)
-            + " Answer: 'eatway applesway'");
-    System.out.println(
-        "Pig Latin for '"
-            + input4
-            + "': "
-            + pigLatin.transformSentence(input4)
-            + " Answer: 'Ellohay orldway'");
+    System.out.println("Pig Latin for '" + input1 + "': " + pigLatin.transformSentence(input1) + " Answer: 'ellohay'");
+    System.out.println("Pig Latin for '" + input2 + "': " + pigLatin.transformSentence(input2) + " Answer: 'ellohay orldway'");
+    System.out.println("Pig Latin for '" + input3 + "': " + pigLatin.transformSentence(input3) + " Answer: 'eatway applesway'");
+    System.out.println("Pig Latin for '" + input4 + "': " + pigLatin.transformSentence(input4) + " Answer: 'Ellohay orldway'");
   }
 }
