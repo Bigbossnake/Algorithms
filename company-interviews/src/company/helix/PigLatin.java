@@ -2,41 +2,27 @@
  * 1. General rule: take the first letter of a word, move it to the end, and add "ay". Example:
  * "hello" becomes "ellohay".
  *
- * 2. A phrase with multiple words should translate each word: "hello world" becomes "ellohay
+ * <p>2. A phrase with multiple words should translate each word: "hello world" becomes "ellohay
  * orldway"
  *
- * 3. A word which begins with a vowel keeps its first letter, and just adds "way" to the end of
+ * <p>3. A word which begins with a vowel keeps its first letter, and just adds "way" to the end of
  * the word: "eat apples" becomes "eatway applesway"
  *
- * 4. A word which is capitalized should remain capitalized after translation: "Hello world"
+ * <p>4. A word which is capitalized should remain capitalized after translation: "Hello world"
  * becomes "Ellohay orldway"
  */
 package company.helix;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class PigLatin {
-  private static final Set<Character> VOWELS = new HashSet<>();
-
-  static {
-    VOWELS.add('A');
-    VOWELS.add('E');
-    VOWELS.add('I');
-    VOWELS.add('O');
-    VOWELS.add('U');
-    VOWELS.add('a');
-    VOWELS.add('e');
-    VOWELS.add('i');
-    VOWELS.add('o');
-    VOWELS.add('u');
-  }
+  private static final Set<Character> VOWELS =
+      Set.of('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u');
 
   public String createPigLatinWord(String input) {
-    int start = 1;
-    int end   = input.length();
-
-    char firstLetter  = input.charAt(0);
+    int start              = 1;
+    int end                = input.length();
+    char firstLetter       = input.charAt(0);
     String latinWordPrefix = "ay";
 
     // Contains Vowels
@@ -73,9 +59,7 @@ public class PigLatin {
       pigLatinSentence.append(spaceToken);
     }
 
-    return pigLatinSentence
-            .toString()
-            .trim();
+    return pigLatinSentence.toString().trim();
   }
 
   public static void main(String[] args) {
@@ -85,9 +69,29 @@ public class PigLatin {
     String input3 = "eat apples";
     String input4 = "Hello world";
 
-    System.out.println("Pig Latin for '" + input1 + "': " + pigLatin.transformSentence(input1) + " Answer: 'ellohay'");
-    System.out.println("Pig Latin for '" + input2 + "': " + pigLatin.transformSentence(input2) + " Answer: 'ellohay orldway'");
-    System.out.println("Pig Latin for '" + input3 + "': " + pigLatin.transformSentence(input3) + " Answer: 'eatway applesway'");
-    System.out.println("Pig Latin for '" + input4 + "': " + pigLatin.transformSentence(input4) + " Answer: 'Ellohay orldway'");
+    System.out.println(
+        "Pig Latin for '"
+            + input1
+            + "': "
+            + pigLatin.transformSentence(input1)
+            + " Answer: 'ellohay'");
+    System.out.println(
+        "Pig Latin for '"
+            + input2
+            + "': "
+            + pigLatin.transformSentence(input2)
+            + " Answer: 'ellohay orldway'");
+    System.out.println(
+        "Pig Latin for '"
+            + input3
+            + "': "
+            + pigLatin.transformSentence(input3)
+            + " Answer: 'eatway applesway'");
+    System.out.println(
+        "Pig Latin for '"
+            + input4
+            + "': "
+            + pigLatin.transformSentence(input4)
+            + " Answer: 'Ellohay orldway'");
   }
 }
