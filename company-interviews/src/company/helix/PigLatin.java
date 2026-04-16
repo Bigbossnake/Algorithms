@@ -55,7 +55,8 @@ public class PigLatin {
     pigLatinWord.append(latinWordPrefix);
 
     if (Character.isUpperCase(firstLetter)) {
-      pigLatinWord.setCharAt(0, Character.toUpperCase(pigLatinWord.charAt(0)));
+      char firstUpperCaseLetter = Character.toUpperCase(pigLatinWord.charAt(0));
+      pigLatinWord.setCharAt(0, firstUpperCaseLetter);
     }
 
     return pigLatinWord.toString();
