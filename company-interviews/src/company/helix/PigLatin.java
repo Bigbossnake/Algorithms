@@ -36,7 +36,7 @@ public class PigLatin {
     int start = 1;
     int end   = input.length();
 
-    Character firstLetter  = input.charAt(0);
+    char firstLetter  = input.charAt(0);
     String latinWordPrefix = "ay";
 
     // Contains Vowels
@@ -54,7 +54,7 @@ public class PigLatin {
 
     pigLatinWord.append(latinWordPrefix);
 
-    if (Character.isUpperCase(input.charAt(0))) {
+    if (Character.isUpperCase(firstLetter)) {
       pigLatinWord.setCharAt(0, Character.toUpperCase(pigLatinWord.charAt(0)));
     }
 
@@ -62,17 +62,19 @@ public class PigLatin {
   }
 
   public String transformSentence(String sentence) {
-    String space_token = " ";
+    String spaceToken = " ";
     StringBuilder pigLatinSentence = new StringBuilder();
-    String[] words = sentence.trim().split(space_token);
+    String[] words = sentence.trim().split(spaceToken);
 
     for (String word : words) {
       String pigLatinWord = createPigLatinWord(word);
       pigLatinSentence.append(pigLatinWord);
-      pigLatinSentence.append(" ");
+      pigLatinSentence.append(spaceToken);
     }
 
-    return pigLatinSentence.toString();
+    return pigLatinSentence
+            .toString()
+            .trim();
   }
 
   public static void main(String[] args) {
