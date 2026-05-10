@@ -16,18 +16,41 @@
  */
 package com.problem.solving.leetcode.problems.arrays;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+
 public class MergeIntervals {
 
   public int[][] merge(int[][] intervals) {
-    int[][] mergedIntervals = new int[intervals.length][2];
 
-    return mergedIntervals;
+    Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+    LinkedList<int[]> mergedIntervals = new LinkedList<>();
+
+    for (int[] interval : intervals) {
+
+      if (mergedIntervals.isEmpty() || mergedIntervals.getLast()[1] < interval[0]) {
+        mergedIntervals.add(interval);
+      }
+
+      else {
+        mergedIntervals.getLast()[1] = Math.max(mergedIntervals.getLast()[1], interval[1]);
+      }
+    }
+
+    return mergedIntervals.toArray(new int[mergedIntervals.size()][]);
   }
 
   public static void main(String[] args) {
     MergeIntervals mergeIntervals = new MergeIntervals();
     int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    // int[][] intervals = {{1, 4}, {2, 3}};
 
-    System.out.println(mergeIntervals.merge(intervals));
+    System.out.print("[");
+    for (int[] interval : mergeIntervals.merge(intervals)) {
+      int start = interval[0];
+      int end = interval[1];
+      System.out.print(start + ", " + end + " ,");
+    }
+    System.out.print("]");
   }
 }
