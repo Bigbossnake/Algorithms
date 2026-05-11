@@ -19,7 +19,7 @@ import java.util.Stack;
 
 public class BasicCalculatorIII {
 
-  private static final char DELMITER          = '@';
+  private static final char DELIMITER = '@';
   private static final char SUM               = '+';
   private static final char SUBSTRACTION      = '-';
   private static final char MULTIPLICATION    = '*';
@@ -50,7 +50,7 @@ public class BasicCalculatorIII {
     char previousOperator = SUM;
     Stack<String> tokens  = new Stack<>();
 
-    s+=DELMITER;
+    s+= DELIMITER;
     for (int i = 0; i < s.length(); i++) {
       char currentToken = s.charAt(i);
 
