@@ -11,92 +11,71 @@
  */
 package com.problem.solving.leetcode.problems.stacks;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Stack;
-import java.util.stream.Collectors;
-
-import static java.util.Map.Entry.*;
-import static java.util.Map.Entry.comparingByValue;
 
 public class BasicCalculator {
-  private static final char SUM            = '+';
-  private static final char SUBSTRACTION   = '-';
-  private static final char MULTIPLICATION = '*';
-  private static final char DIVISION       = '/';
 
-  private static final int LOW_PRIORITY  = 0;
-  private static final int HIGH_PRIORITY = 1;
-
-  private static final Map<Character, Integer> isOperator = Map.of(
-          SUM, LOW_PRIORITY,
-          SUBSTRACTION, LOW_PRIORITY,
-          MULTIPLICATION, HIGH_PRIORITY,
-          DIVISION, HIGH_PRIORITY
-  );
-
-  public void calculateOperation(Stack<Integer> numbers, char operation) {
-    int result;
-    int number1 = numbers.pop(); // operando derecho (último en entrar)
-    int number2 = numbers.pop(); // operando izquierdo
-
-    result = switch (operation) {
-          case SUM -> number2 + number1;
-          case SUBSTRACTION -> number2 - number1;
-          case MULTIPLICATION -> number2 * number1;
-          case DIVISION -> number2 / number1;
-          default -> 0;
-    };
-
-    numbers.push(result);
-  }
+  private static final char SUM               = '+';
+  private static final char SUBSTRACTION      = '-';
+  private static final char OPEN_PARENTHESIS  = '(';
+  private static final char CLOSE_PARENTHESIS = ')';
 
   public int calculate(String s) {
-    Stack<Character> operands   = new Stack<>();
-    Stack<Integer> numbers      = new Stack<>();
-    int expressionSize          = s.length();
-    StringBuilder currentNumber = new StringBuilder();
 
-    for (int i = 0; i < expressionSize; i++) {
+    int number  = 0;
+    int result  = 0;
+
+    // 1 for positive, -1 for negative
+    int sign = 1;
+
+    Stack<Integer> stack = new Stack<Integer>();
+
+    for (int i = 0; i < s.length(); i++) {
       char currentToken = s.charAt(i);
 
       if (Character.isDigit(currentToken)) {
-        currentNumber.append(currentToken);
+        number = (number * 10) + Character.getNumericValue(currentToken);
       }
 
-      else if (isOperator.containsKey(currentToken)) {
-        numbers.push(Integer.parseInt(currentNumber.toString()));
-        currentNumber = new StringBuilder();
+      else if (currentToken == SUM) {
+        result += sign * number;
+        sign   = 1;
+        number = 0;
 
-        // Mientras haya un operador en el stack con prioridad >= a la del actual,
-        // lo resolvemos. Esto respeta tanto la precedencia como la asociatividad
-        // izquierda de +, -, *, /.
-        while (!operands.isEmpty()
-            && isOperator.get(operands.peek()) >= isOperator.get(currentToken)) {
-          calculateOperation(numbers, operands.pop());
-        }
+      }
 
-        operands.push(currentToken);
+      else if (currentToken == SUBSTRACTION) {
+        result += sign * number;
+        sign   = -1;
+        number = 0;
+      }
+
+      else if (currentToken == OPEN_PARENTHESIS) {
+        stack.push(result);
+        stack.push(sign);
+
+        sign   = 1;
+        result = 0;
+
+      }
+
+      else if (currentToken == CLOSE_PARENTHESIS) {
+
+        result += sign * number;
+        result *= stack.pop();
+        result += stack.pop();
+
+        number = 0;
       }
     }
-
-    if (currentNumber.length() > 0) {
-      numbers.push(Integer.parseInt(currentNumber.toString()));
-    }
-
-    while (!operands.isEmpty()) {
-      calculateOperation(numbers, operands.pop());
-    }
-
-    return numbers.pop();
+    return result + (sign * number);
   }
 
   public static void main(String[] args) {
     BasicCalculator calculator = new BasicCalculator();
+    String mathExpression = "1-(-2)";
 
-    String mathExpression = "3+2*2";
     System.out.println(calculator.calculate(mathExpression));
   }
+
 }

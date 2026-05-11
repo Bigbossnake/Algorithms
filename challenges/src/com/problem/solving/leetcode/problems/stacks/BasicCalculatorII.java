@@ -53,7 +53,7 @@ public class BasicCalculatorII {
           case SUBSTRACTION -> operands.push(-currentNumber);
           case MULTIPLICATION -> operands.push(operands.pop() * currentNumber);
           case DIVISION -> operands.push(operands.pop() / currentNumber);
-        };
+        }
 
         operation     = currentToken;
         currentNumber = 0;
