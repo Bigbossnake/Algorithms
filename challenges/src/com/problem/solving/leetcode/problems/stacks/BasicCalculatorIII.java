@@ -19,7 +19,7 @@ import java.util.Stack;
 
 public class BasicCalculatorIII {
 
-  private static final char DELIMITER = '@';
+  private static final char DELIMITER         = '@';
   private static final char SUM               = '+';
   private static final char SUBSTRACTION      = '-';
   private static final char MULTIPLICATION    = '*';
